@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Web3 Personal Website</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* 导航栏样式 */
+        #navbar {
+            background-color: rgb(173, 110, 181);
+            color: #fff;
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #web3 {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        #nav-buttons {
+            display: flex;
+        }
+
+        .nav-button {
+            font-size: 20px;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        /* 第一部分样式 */
+         #header {
+            background-color: #b495c9;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+        }
+
+        #avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            background-image: url("photo.jpg");
+            background-size: cover;
+            background-position: center;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            position:absolute;
+            top:130px;
+            left:150px;
+            transition: all 0.3s ease-in-out;
+            /* margin-left: 20%; */
+        }
+        
+        #name {
+            font-size: 48px;
+            color: #fff;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            margin-top: 20px;
+            position:absolute;
+            top:330px;
+            left:200px;
+            /* margin-bottom: 20px; */
+            /* text-align: center; */
+        }
+
+        .right {
+            position:absolute;
+            top: 40%;
+            right: 10%;
+            transform: translateY(-50%);
+            text-align: right;
+            /* margin-right: 20%; */
+            /* text-align: right; */
+        }
+
+        #text {
+            font-size: 64px;
+            color: #fff;
+            text-align: right;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        /* 艺术字样式 */
+        @font-face {
+            font-family: "Artistic";
+            src: url("artistic-font.ttf");
+        }
+
+        .artistic {
+            font-family: "Artistic";
+            display: inline-block;
+            letter-spacing: 5px;
+        }
+
+        /* 第二到第五部分样式（仅作示例） */
+        #section-2 {
+            background-color: #fff;
+            height: 20vh;
+            line-height:40px;
+            margin-bottom:80px;
+            
+        }
+        .container0 {
+			/* max-width: 800px; */
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+
+        #section-3 {
+            font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f2f2f2;
+        }
+        
+        .container {
+			/* max-width: 800px; */
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+		
+		.section {
+			width: 48%;
+			margin-bottom: 20px;
+			background-color: #f9f9f9;
+			border-radius: 5px;
+			box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+		}
+		
+		.section h2 {
+			margin: 0;
+			padding: 10px;
+            font-size: 17px;
+			background-color: #b495c9;
+			color: #fff;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			font-weight: bold;
+		}
+		
+		.links {
+			padding: 10px;
+			display: flex;
+			flex-direction: column;
+		}
+		
+		.link {
+			margin-bottom: 5px;
+			padding: 5px;
+			background-color: #fff;
+			border-radius: 5px;
+			box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+			cursor: pointer;
+		}
+		
+		.link:hover {
+			background-color: #f2f2f2;
+		}
+		
+		.paging {
+			margin-top: 10px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		.paging button {
+			margin: 0 5px;
+			padding: 5px 10px;
+			background-color: #ccc;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			cursor: pointer;
+		}
+		
+		.paging button:hover {
+			background-color: #ccc;
+		}
+		
+		.paging button:disabled {
+			background-color: #ccc;
+			cursor: not-allowed;
+		}
+
+
+
+
+        #section-4 {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .container1 {
+			/* max-width: 800px; */
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		
+		.section1 {
+			width: 100%;
+			margin-bottom: 20px;
+		}
+		
+		.section1 h2 {
+			margin: 0;
+			padding: 10px;
+			background-color: #4CAF50;
+			color: #fff;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			font-weight: bold;
+		}
+		
+		.slider {
+			width: 100%;
+			overflow-x: scroll;
+			white-space: nowrap;
+		}
+		
+		.slide {
+			display: inline-block;
+			width: 30%;
+			margin-right: 2%;
+			background-color: #f9f9f9;
+			border-radius: 5px;
+			box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+			vertical-align: top;
+			/* background-size: cover; */
+			/* background-position: center; */
+		}
+		
+		.slide:nth-child(1) {
+			background-image: url('1.jpg');
+            /* margin-right: 30px; */
+
+		}
+		
+		.slide:nth-child(2) {
+			background-image: url('2.jpg');
+		}
+		
+		.slide:nth-child(3) {
+			background-image: url('3.jpg');
+		}
+		
+		.slide:nth-child(4) {
+			background-image: url('4.jpg');
+		}
+		
+		.slide:nth-child(5) {
+			background-image: url('5.jpg');
+		}
+		
+		.slide h3 {
+			margin: 100px;
+            width:200px;
+			font-size: 16px;
+			font-weight: bold;
+            text-align: center;
+            font-size: 14px;
+            /* margin-top: 205px; */
+		}
+		
+		.paging {
+			margin-top: 10px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		/* .paging button {
+			margin: 0 5px;
+			padding: 5px 10px;
+			background-color: #4CAF50;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			cursor: pointer;
+		}
+		
+		.paging button:hover {
+			background-color: #a8899b;
+		}
+		
+		.paging button:disabled {
+			background-color: #ccc;
+			cursor: not-allowed;
+		} */
+
+
+
+        #section-5 {
+            font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f2f2f2;
+        }
+        .container2 {
+			/* max-width: 1000px; */
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+		}
+		
+		h1 {
+			text-align: center;
+			margin-top: 0;
+		}
+		
+		form {
+			display: flex;
+			flex-direction: column;
+			margin-top: 20px;
+		}
+		
+		label {
+			font-weight: bold;
+			margin-bottom: 5px;
+		}
+		
+		input[type="text"], textarea {
+			padding: 10px;
+			margin-bottom: 10px;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+			resize: none;
+			font-size: 16px;
+		}
+		
+		input[type="submit"] {
+			background-color: #c0bcc3;
+			color: #fff;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			cursor: pointer;
+		}
+		
+		.message {
+			margin-top: 20px;
+			padding: 10px;
+			background-color: #f9f9f9;
+			border-radius: 5px;
+			box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+		}
+		
+		.message p {
+			margin: 0 0 5px 0;
+		}
+		
+		.message span {
+			font-weight: bold;
+		}
+
+
+
+
+
+        
+        .intro {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: #333;
+            margin-left:5%;
+        }
+
+        h2 {
+        margin-bottom: 10px;
+        }
+
+        h2 span {
+        font-weight: bold;
+        border-bottom: 2px solid #333;
+        padding-bottom: 2px;
+        }
+
+        p {
+        margin-top: 5px;
+        margin-left:6%;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div id="navbar">
+        <div id="web3">web3</div>
+        <div id="nav-buttons">
+            <div class="nav-button" onclick="scrollToSection(2)">个人资料</div>
+            <div class="nav-button" onclick="scrollToSection(3)">个人作品</div>
+            <div class="nav-button" onclick="scrollToSection(4)">活动经历</div>
+            <div class="nav-button" onclick="scrollToSection(5)">给我留言</div>
+        </div>
+    </div>
+
+    <!-- 第一部分 -->
+    <div id="header">
+        <div id="avatar"></div>
+        <div id="name">名字</div>
+
+        <div class="right">
+            <div id="text">
+                跟我一起<br>
+                <span class="artistic">探索Web3世界</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 第二到第五部分（仅作示例） -->
+    <div id="section-2">
+        <div class="intro">
+            <h2><span class="underline">关于我</span></h2>
+        </div>   
+        <div class="container0">
+            <p> 个人标签：商业分析师，链上数据分析，投研<br/>
+            联系方式：example@example.com<br/>
+            github:*********************
+            </p >
+          </div>
+    </div>
+
+    <div id="section-3">
+        <div class="intro">
+            <h2><span class="underline">个人作品</span></h2>
+        </div>   
+        <div class="container">
+            <div class="section">
+                <h2>链上数据分析</h2>
+                <div class="links">
+                    <div class="link">链接标题1</div>
+                    <div class="link">链接标题2</div>
+                    <div class="link">链接标题3</div>
+                    <div class="link">链接标题4</div>
+                    <div class="link">链接标题5</div>
+                    <div class="paging">
+                        <button disabled>上一页</button>
+                        <button>1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>4</button>
+                        <button>5</button>
+                        <button>下一页</button>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <h2>投研</h2>
+                <div class="links">
+                    <div class="link">链接标题1</div>
+                    <div class="link">链接标题2</div>
+                    <div class="link">链接标题3</div>
+                    <div class="link">链接标题4</div>
+                    <div class="link">链接标题5</div>
+                    <div class="paging">
+                        <button disabled>上一页</button>
+                        <button>1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>4</button>
+                        <button>5</button>
+                        <button>下一页</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="section-4">
+        <div class="intro">
+            <h2><span class="underline">活动经历</span></h2>
+        </div>
+        <div class="container1">
+            <div class="section1">
+                <!-- <h2>第四部分</h2> -->
+                <div class="slider">
+                    <div class="slide">
+                        <h3>图片1标题</h3>
+                    </div>
+                    <div class="slide">
+                        <h3>图片2标题</h3>
+                    </div>
+                    <div class="slide">
+                        <h3>图片3标题</h3>
+                    </div>
+                    <div class="slide">
+                        <h3>图片4标题</h3>
+                    </div>
+                    <div class="slide">
+                        <h3>图片5标题</h3>
+                    </div>
+                </div>
+                <!-- <div class="paging">
+                    <button disabled>上一页</button>
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button>4</button>
+                    <button>下一页</button>
+                </div> -->
+            </div>
+        </div>
+    <div id="section-5">
+        <div class="intro">
+            <h2><span class="underline">留言板</span></h2>
+        </div>
+        <div class="container2">
+            <!-- <h1>留言板</h1> -->
+            <form>
+                <!-- <label for="name">姓名:</label> -->
+                <!-- <input type="text" id="name" name="name" required> -->
+                
+                <label for="email">邮箱:</label>
+                <input type="text" id="email" name="email" required>
+                
+                <label for="message">留言:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <input type="submit" value="提交">
+            </form>
+            
+            
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* 点击导航栏按钮后滚动到对应的部分 */
+        function scrollToSection(sectionNumber) {
+            const section = document.querySelector(`#section-${sectionNumber}`);
+            section.scrollIntoView({ behavior: "smooth" });
+        }
+        function zoomIn() {
+  document.querySelector('.avatar').style.transform = 'scale(1.2)';
+}
+
+function zoomOut() {
+  document.querySelector('.avatar').style.transform = 'scale(1)';
+}
+    </script>
+</body>
+</html>
